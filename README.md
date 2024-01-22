@@ -1,6 +1,6 @@
-# untitled
+# Book App
 
-A new Flutter project.
+A book app using google books api with BLoC and MVVM architecture.
 
 ## Getting Started
 
