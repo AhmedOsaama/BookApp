@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:go_router/go_router.dart';
 import 'package:untitled/core/constants.dart';
+import 'package:untitled/core/utils/app_router.dart';
 import 'package:untitled/core/utils/assets.dart';
 
 import '../../../../home/presentation/views/home_view.dart';
@@ -21,13 +23,17 @@ class _SplashViewBodyState extends State<SplashViewBody> with SingleTickerProvid
   void initState() {
     super.initState();
     initSlidingAnimation();
-    Future.delayed(const Duration(seconds: 2), () {
-      Get.to(() => const HomeView(), transition: Transition.fade, duration: kTransitionDuration);
+    navigateToHome();
+  }
+
+  void navigateToHome() {
+     Future.delayed(const Duration(seconds: 2), () {
+       GoRouter.of(context).go(AppRouter.kHomeView);
     });
   }
 
   void initSlidingAnimation() {
-     animationController = AnimationController(vsync: this, duration: const Duration(minutes: 1));
+     animationController = AnimationController(vsync: this, duration: const Duration(seconds: 1));
     slidingAnimation = Tween<Offset>(begin: const Offset(0, 2), end: Offset.zero).animate(animationController);
     animationController.forward();
   }
@@ -47,7 +53,6 @@ class _SplashViewBodyState extends State<SplashViewBody> with SingleTickerProvid
         children: [
           Image.asset(AssetsData.logo),
          SlidingText(slidingAnimation: slidingAnimation,),
-
         ]
       ),
     );
