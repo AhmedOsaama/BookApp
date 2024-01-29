@@ -1,6 +1,6 @@
 import 'ListPrice.dart';
-import 'RetailPrice.dart';
 import 'Offers.dart';
+import 'RetailPrice.dart';
 
 /// country : "US"
 /// saleability : "FOR_SALE"

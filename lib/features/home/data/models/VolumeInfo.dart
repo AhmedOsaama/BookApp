@@ -1,7 +1,7 @@
-import 'IndustryIdentifiers.dart';
-import 'ReadingModes.dart';
-import 'PanelizationSummary.dart';
 import 'ImageLinks.dart';
+import 'IndustryIdentifiers.dart';
+import 'PanelizationSummary.dart';
+import 'ReadingModes.dart';
 
 /// title : "The Rust Programming Language (Covers Rust 2018)"
 /// authors : ["Steve Klabnik","Carol Nichols"]
