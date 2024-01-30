@@ -20,7 +20,7 @@ class Offers {
 
   Offers.fromJson(dynamic json) {
     _finskyOfferType = json['finskyOfferType'];
-    _listPrice = json['listPrice'];
+    // _listPrice = (json['listPrice'] as Map<String, dynamic>?) as ListPrice?;
     _retailPrice = json['retailPrice'] != null ? RetailPrice.fromJson(json['retailPrice']) : null;
     _giftable = json['giftable'];
   }

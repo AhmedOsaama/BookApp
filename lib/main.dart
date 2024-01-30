@@ -1,8 +1,6 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:get_it/get_it.dart';
-import 'package:go_router/go_router.dart';
 import 'package:untitled/core/constants.dart';
 import 'package:untitled/core/utils/app_router.dart';
 import 'package:untitled/core/utils/service_locator.dart';
@@ -11,6 +9,7 @@ import 'package:untitled/features/home/presentation/manager/featured_books_cubit
 import 'package:untitled/features/home/presentation/manager/newest_books_cubit/newest_books_cubit.dart';
 
 void main() {
+  setupServiceLocator();
   runApp(const BooklyApp());
 }
 
@@ -21,8 +20,8 @@ class BooklyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MultiBlocProvider(
       providers: [
-       BlocProvider(create: (ctx) => FeaturedBooksCubit(getIt.get<HomeRepoImpl>())),
-       BlocProvider(create: (ctx) => NewestBooksCubit(getIt.get<HomeRepoImpl>())),
+       BlocProvider(create: (ctx) => FeaturedBooksCubit(getIt.get<HomeRepoImpl>())..fetchFeaturedBooks()),
+       BlocProvider(create: (ctx) => NewestBooksCubit(getIt.get<HomeRepoImpl>())..fetchNewestBooks()),
       ],
       child:  MaterialApp.router(
         routerConfig: AppRouter.router,

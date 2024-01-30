@@ -32,7 +32,7 @@ class SaleInfo {
     _country = json['country'];
     _saleability = json['saleability'];
     _isEbook = json['isEbook'];
-    _listPrice = json['listPrice'];
+    // _listPrice = (json['listPrice'] as Map<String, dynamic>?)?.cast<String, dynamic>() as ListPrice?;
     _retailPrice = json['retailPrice'] != null ? RetailPrice.fromJson(json['retailPrice']) : null;
     _buyLink = json['buyLink'];
     if (json['offers'] != null) {
