@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:untitled/features/home/data/models/BookModel.dart';
 import 'package:untitled/features/home/presentation/views/widgets/custom_book_image.dart';
 
-import '../../../../../core/utils/assets.dart';
 import '../../../../../core/utils/styles.dart';
 import 'book_rating_view.dart';
 

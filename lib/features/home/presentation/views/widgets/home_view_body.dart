@@ -70,7 +70,7 @@ class BestSellerListView extends StatelessWidget {
             padding: const EdgeInsets.symmetric(vertical: 10),
             child: GestureDetector(
               onTap: () {
-              GoRouter.of(context).push(AppRouter.kBookDetails);
+              GoRouter.of(context).push(AppRouter.kBookDetails, extra: state.books[i],);
               },
                 child: BestSellerListViewItem(bookModel: state.books[i],)),
           ),

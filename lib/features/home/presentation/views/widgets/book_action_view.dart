@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:untitled/features/home/data/models/BookModel.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 import '../../../../../core/widgets/custom_button.dart';
 
 class BooksAction extends StatelessWidget {
-  const BooksAction({super.key});
+  final BookModel bookModel;
+  const BooksAction({super.key, required this.bookModel});
 
   // final BookModel bookModel;
   @override
@@ -22,9 +25,16 @@ class BooksAction extends StatelessWidget {
                   bottomLeft: Radius.circular(16),
                 ),
               )),
+          if(bookModel.volumeInfo?.previewLink != null)
           Expanded(
               child: CustomButton(
-                onPressed: () {
+                onPressed: () async {
+                   var url = Uri.parse(bookModel.volumeInfo?.previewLink! ?? "");
+                   if(await canLaunchUrl(url)){
+                     await launchUrl(url);
+                   }else{
+                     throw "Couldn't launch $url";
+                   }
                 },
                 fontSize: 16,
                 text: "19.99",
